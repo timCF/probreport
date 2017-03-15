@@ -31,8 +31,8 @@ defmodule Probreport do
     |> Map.from_struct
     |> Enum.reduce(%{}, fn({key,value}, acc = %{}) ->
       case is_map(value) do
-        true -> Enum.reduce(value, acc, fn({percent, value}, acc = %{}) -> Map.put(acc, make_verbose_header(key, percent), value) end)
-        false -> Map.put(acc, make_verbose_header(key), value)
+        true -> Enum.reduce(value, acc, fn({percent, value}, acc = %{}) -> Map.put(acc, make_verbose_header(key, percent), prettify_values(value)) end)
+        false -> Map.put(acc, make_verbose_header(key), prettify_values(value))
       end
     end)
     |> Map.put(make_verbose_header(:odd), odd)
@@ -45,6 +45,8 @@ defmodule Probreport do
     ++
     Enum.flat_map(conf_precents, fn(percent) -> Enum.map([:conf_min, :conf_max], &(make_verbose_header(&1, percent))) end)
   end
+
+  defp prettify_values(some), do: Maybe.maybe_to_string(some, %Maybe{decimals: 9})
 
   defp make_verbose_header(:odd), do: "Game Name"
   defp make_verbose_header(:length), do: "Total Spins"
