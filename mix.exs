@@ -20,6 +20,7 @@ defmodule Probreport.Mixfile do
                       :csvex,
                       :erlmath,
                       :maybe,
+                      :exroul,
                     ],
      mod: {Probreport, []}]
   end
@@ -39,6 +40,7 @@ defmodule Probreport.Mixfile do
       {:csvex, github: "timCF/csvex"},
       {:erlmath, github: "timCF/erlmath"},
       {:maybe, github: "timCF/maybe"},
+      {:exroul, github: "timCF/exroul"},
     ]
   end
 end

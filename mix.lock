@@ -6,6 +6,7 @@
   "erlmath": {:git, "https://github.com/timCF/erlmath.git", "8246876112885b3fa300ace0fdd29d34c0af7841", []},
   "erlware_commons": {:hex, :erlware_commons, "0.21.0", "a04433071ad7d112edefc75ac77719dd3e6753e697ac09428fc83d7564b80b15", [:rebar3], [{:cf, "0.2.1", [hex: :cf, optional: false]}]},
   "exrm": {:git, "https://github.com/bitwalker/exrm.git", "ba7596cdc9f303708d7279b223408c19219c2ca3", [tag: "0.19.9"]},
+  "exroul": {:git, "https://github.com/timCF/exroul.git", "23cafb979b6f79ef7c9df5286fd8b7c92bfa064b", []},
   "flow": {:hex, :flow, "0.11.0", "6ca9a05f33e3df10bc2ab847ad470523d3a01673456049a60110467d2f31bd58", [:mix], [{:gen_stage, "~> 0.11.0", [hex: :gen_stage, optional: false]}]},
   "gen_stage": {:hex, :gen_stage, "0.11.0", "943bdfa85c75fa624e0a36a9d135baad20a523be040178f5a215444b45c66ea4", [:mix], []},
   "getopt": {:hex, :getopt, "0.8.2", "b17556db683000ba50370b16c0619df1337e7af7ecbf7d64fbf8d1d6bce3109b", [:rebar], []},

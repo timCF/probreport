@@ -21,12 +21,31 @@ defmodule Probreport do
   defstruct length: nil,
             mean: nil,
             std_dev: nil,
-            # maps like %{90 => x, 95 => y, 99 => z}
+            # maps like %{0.9 => x, 0.95 => y, 0.99 => z}
             conf_half_ranges: %{},
             conf_min: %{},
             conf_max: %{}
 
-  def make_raw(lst = [_|_], conf_precents) when is_list(conf_precents) do
+  def make_verbose_row(odd, lst, conf_precents) do
+    make_raw(lst, conf_precents)
+    |> Map.from_struct
+    |> Enum.reduce(%{}, fn({key,value}, acc = %{}) ->
+      case is_map(value) do
+        true -> Enum.reduce(value, acc, fn({percent, value}, acc = %{}) -> Map.put(acc, make_verbose_header(key, percent), value) end)
+        false -> Map.put(acc, make_verbose_header(key), value)
+      end
+    end)
+    |> Map.put("Game Name", odd)
+  end
+
+  def make_verbose_header(:length), do: "Total Spins"
+  def make_verbose_header(:mean), do: "Observed RTP"
+  def make_verbose_header(:std_dev), do: "True Standard Deviation"
+  def make_verbose_header(:conf_half_ranges, percent), do: "#{ round(percent * 100) }% Confidence Range"
+  def make_verbose_header(:conf_min, percent), do: "#{ round(percent * 100) }% Confidence Min"
+  def make_verbose_header(:conf_max, percent), do: "#{ round(percent * 100) }% Confidence Max"
+
+  defp make_raw(lst = [_|_], conf_precents) when is_list(conf_precents) do
     acc = %Probreport{
       length: length(lst),
       mean: Statistics.mean(lst),
