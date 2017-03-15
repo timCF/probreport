@@ -22,6 +22,7 @@ defmodule Probreport.Mixfile do
                       :maybe,
                       :exroul,
                       :erlng,
+                      :exkeno,
                     ],
      mod: {Probreport, []}]
   end
@@ -43,6 +44,7 @@ defmodule Probreport.Mixfile do
       {:maybe, github: "timCF/maybe"},
       {:exroul, github: "timCF/exroul"},
       {:erlng, github: "timCF/erlng"},
+      {:exkeno, github: "timCF/exkeno"},
     ]
   end
 end

@@ -6,6 +6,7 @@
   "erlmath": {:git, "https://github.com/timCF/erlmath.git", "8246876112885b3fa300ace0fdd29d34c0af7841", []},
   "erlng": {:git, "https://github.com/timCF/erlng.git", "80e9b58a6b0db6c9e55e502b56e5d195a5ef2160", []},
   "erlware_commons": {:hex, :erlware_commons, "0.21.0", "a04433071ad7d112edefc75ac77719dd3e6753e697ac09428fc83d7564b80b15", [:rebar3], [{:cf, "0.2.1", [hex: :cf, optional: false]}]},
+  "exkeno": {:git, "https://github.com/timCF/exkeno.git", "a07922859f5e4a7e7ee5e29b53e374a434bbceb0", []},
   "exrm": {:git, "https://github.com/bitwalker/exrm.git", "ba7596cdc9f303708d7279b223408c19219c2ca3", [tag: "0.19.9"]},
   "exroul": {:git, "https://github.com/timCF/exroul.git", "23cafb979b6f79ef7c9df5286fd8b7c92bfa064b", []},
   "flow": {:hex, :flow, "0.11.0", "6ca9a05f33e3df10bc2ab847ad470523d3a01673456049a60110467d2f31bd58", [:mix], [{:gen_stage, "~> 0.11.0", [hex: :gen_stage, optional: false]}]},
