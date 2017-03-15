@@ -21,6 +21,7 @@ defmodule Probreport.Mixfile do
                       :erlmath,
                       :maybe,
                       :exroul,
+                      :erlng,
                     ],
      mod: {Probreport, []}]
   end
@@ -41,6 +42,7 @@ defmodule Probreport.Mixfile do
       {:erlmath, github: "timCF/erlmath"},
       {:maybe, github: "timCF/maybe"},
       {:exroul, github: "timCF/exroul"},
+      {:erlng, github: "timCF/erlng"},
     ]
   end
 end

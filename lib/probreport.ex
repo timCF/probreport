@@ -26,7 +26,7 @@ defmodule Probreport do
             conf_min: %{},
             conf_max: %{}
 
-  def make_verbose_row(odd, lst, conf_precents) do
+  def make_verbose_row(lst, odd, conf_precents) do
     make_raw(lst, conf_precents)
     |> Map.from_struct
     |> Enum.reduce(%{}, fn({key,value}, acc = %{}) ->
@@ -35,15 +35,24 @@ defmodule Probreport do
         false -> Map.put(acc, make_verbose_header(key), value)
       end
     end)
-    |> Map.put("Game Name", odd)
+    |> Map.put(make_verbose_header(:odd), odd)
   end
 
-  def make_verbose_header(:length), do: "Total Spins"
-  def make_verbose_header(:mean), do: "Observed RTP"
-  def make_verbose_header(:std_dev), do: "True Standard Deviation"
-  def make_verbose_header(:conf_half_ranges, percent), do: "#{ round(percent * 100) }% Confidence Range"
-  def make_verbose_header(:conf_min, percent), do: "#{ round(percent * 100) }% Confidence Min"
-  def make_verbose_header(:conf_max, percent), do: "#{ round(percent * 100) }% Confidence Max"
+  def make_csv_header(conf_precents) do
+    Enum.map([:odd, :length, :mean, :std_dev], &make_verbose_header/1)
+    ++
+    Enum.map(conf_precents, &(make_verbose_header(:conf_half_ranges, &1)))
+    ++
+    Enum.flat_map(conf_precents, fn(percent) -> Enum.map([:conf_min, :conf_max], &(make_verbose_header(&1, percent))) end)
+  end
+
+  defp make_verbose_header(:odd), do: "Game Name"
+  defp make_verbose_header(:length), do: "Total Spins"
+  defp make_verbose_header(:mean), do: "Observed RTP"
+  defp make_verbose_header(:std_dev), do: "True Standard Deviation"
+  defp make_verbose_header(:conf_half_ranges, percent), do: "#{ round(percent * 100) }% Confidence Range"
+  defp make_verbose_header(:conf_min, percent), do: "#{ round(percent * 100) }% Confidence Min"
+  defp make_verbose_header(:conf_max, percent), do: "#{ round(percent * 100) }% Confidence Max"
 
   defp make_raw(lst = [_|_], conf_precents) when is_list(conf_precents) do
     acc = %Probreport{

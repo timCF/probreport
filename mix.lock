@@ -4,6 +4,7 @@
   "csv": {:git, "https://github.com/beatrichartz/csv.git", "36b048ef4103ab5be0e39669cd627f34cd5543d1", [tag: "36b048ef4103ab5be0e39669cd627f34cd5543d1"]},
   "csvex": {:git, "https://github.com/timCF/csvex.git", "040b6afb98700709574fff03ec5b294aadd3e0d9", []},
   "erlmath": {:git, "https://github.com/timCF/erlmath.git", "8246876112885b3fa300ace0fdd29d34c0af7841", []},
+  "erlng": {:git, "https://github.com/timCF/erlng.git", "80e9b58a6b0db6c9e55e502b56e5d195a5ef2160", []},
   "erlware_commons": {:hex, :erlware_commons, "0.21.0", "a04433071ad7d112edefc75ac77719dd3e6753e697ac09428fc83d7564b80b15", [:rebar3], [{:cf, "0.2.1", [hex: :cf, optional: false]}]},
   "exrm": {:git, "https://github.com/bitwalker/exrm.git", "ba7596cdc9f303708d7279b223408c19219c2ca3", [tag: "0.19.9"]},
   "exroul": {:git, "https://github.com/timCF/exroul.git", "23cafb979b6f79ef7c9df5286fd8b7c92bfa064b", []},
