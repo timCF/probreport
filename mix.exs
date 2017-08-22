@@ -40,7 +40,7 @@ defmodule Probreport.Mixfile do
     [
       {:statistics, github: "msharp/elixir-statistics"},
       {:csvex, github: "timCF/csvex"},
-      {:erlmath, github: "timCF/erlmath"},
+      {:erlmath, github: "timCF/erlmath", manager: :rebar},
       {:maybe, github: "timCF/maybe"},
       {:exroul, github: "timCF/exroul"},
       {:erlng, github: "timCF/erlng"},
